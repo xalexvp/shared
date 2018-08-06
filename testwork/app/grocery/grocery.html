@@ -1,0 +1,22 @@
+<div ng-controller="groceryCtrl">
+    <span class="shop-cart_icon" ng-click="toShopCart()">
+        <img src="" alt="shopCart"> {{ shopCart.mainSumm }}$
+    </span>
+    <p >grocery list</p>
+    <ul class="main-list" ng-repeat="grocItem in shopCart" >
+        <li class="groc-item" >
+            <p class="groc-item__name">{{ grocItem.name }}</p>
+            <img src="" alt="somepic" class="groc-item__pic groc-item__pic--{{ grocItem.goodId }}">
+            <input type="button" value="-" ng-click="item = decItem(item)">
+            <input type="text" [value]="item" ng-model="item" readonly>
+            <input type="button" value="+" ng-click="item = incItem(item)">
+            <p>Price: {{ grocItem.price }}$</p>
+            <p ng-model="summ">Summ: {{ summ }}$</p>
+            <p>max available {{ grocItem.available }}</p>
+        </li>
+    </ul>
+    <p> Main Summ: {{ shopCart.mainSumm }}$</p>
+    <input type="button" value="Order this" ng-click="toShopCart()">
+
+</div>
+

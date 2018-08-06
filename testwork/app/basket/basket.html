@@ -1,0 +1,19 @@
+<p>Your shopCart</p>
+<div ng-controller="basketCtrl">
+    <p>Your order-list: </p>
+    <ul class="order-list" ng-repeat="orderItem in shopCart">
+        <li ng-if="orderItem.amount > 0">
+            <p>name: {{ orderItem.name }}</p>
+            <p>amount: {{ orderItem.amount }}</p>
+            <input type="button" value="-" ng-click="decItem()">
+            <input type="button" value="+" ng-click="incItem()">
+            <p>Price: {{ orderItem.price }}</p>
+            <p>Item Summ: {{ orderItem.price * orderItem.amount }}</p>
+
+        </li>
+    </ul>
+    <p> Total amount: {{ shopCart.mainSumm }}$</p>
+    <input type="button" value="Buy" ng-click="sendOrder()">
+</div>
+
+
